@@ -7,7 +7,6 @@ import { useState } from "react";
 import Navbar from "@/component/Navbar";
 import Footer from "@/component/Footer";
 
-
 export async function getStaticProps() {
   const client = new ApolloClient({
     uri: "https://graphql-pokemon2.vercel.app/",
@@ -43,6 +42,7 @@ function Home({ data }) {
   const [maxPageNumberLimit, setMaxPageNumberLimit] = useState(3);
   const [minPageNumberLimit, setMinPageNumberLimit] = useState(0);
 
+  // Pagination Logic
   const pokemon_lastIndex = currentPage * pokemonsPerPage;
   const pokemon_firstIndex = pokemon_lastIndex - pokemonsPerPage;
 
@@ -56,32 +56,30 @@ function Home({ data }) {
 
   const handleClick = (e) => {
     setCurrentPage(Number(e.target.id));
-    window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
   };
 
   const pageNumbers = pages.map((number) => {
     if (number < maxPageNumberLimit + 1 && number > minPageNumberLimit) {
       return (
-          <li
-            key={number}
-            id={number}
-            onClick={handleClick}
-            className={currentPage == number ? styles.active_Page : null}
-          >
-            {number}
-          </li>
-      
+        <li
+          key={number}
+          id={number}
+          onClick={handleClick}
+          className={currentPage == number ? styles.active_Page : null}
+        >
+          {number}
+        </li>
       );
     } else {
       return null;
     }
   });
 
-
-// Pagination Button
+  // Pagination Button
   const previosPage = () => {
     setCurrentPage(currentPage - 1);
-    window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
     if ((currentPage - 1) % pageNumberLimit == 0) {
       setMaxPageNumberLimit(maxPageNumberLimit - pageNumberLimit);
       setMinPageNumberLimit(minPageNumberLimit - pageNumberLimit);
@@ -90,7 +88,7 @@ function Home({ data }) {
 
   const nextPage = () => {
     setCurrentPage(currentPage + 1);
-    window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
     if (currentPage + 1 > maxPageNumberLimit) {
       setMaxPageNumberLimit(maxPageNumberLimit + pageNumberLimit);
       setMinPageNumberLimit(minPageNumberLimit + pageNumberLimit);
@@ -106,7 +104,7 @@ function Home({ data }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <Navbar/>
+        <Navbar />
         <div className={styles.pokemon_container}>
           {PokemonData?.map((poko) => {
             return (
@@ -122,21 +120,16 @@ function Home({ data }) {
                     ></Image>
                     <h3 className={styles.pokemon_number}>{poko.number}</h3>
                     <h2 className={styles.pokemon_name}>{poko.name}</h2>
-
-                    
-              
-                        <div className={styles.pokemon_type}>
-                          <div className={styles.type_1}>
-                            <p>{poko.types[0]}</p>
-                          </div>
-
-                          {
-                            poko.types[1] ? <div className={styles.type_2}>
-                            <p>{poko.types[1]}</p>
-                          </div> : null
-                          }
+                    <div className={styles.pokemon_type}>
+                      <div className={styles.type_1}>
+                        <p>{poko.types[0]}</p>
+                      </div>
+                      {poko.types[1] ? (
+                        <div className={styles.type_2}>
+                          <p>{poko.types[1]}</p>
                         </div>
-                   
+                      ) : null}
+                    </div>
                   </div>
                 </Link>
               </div>
@@ -144,29 +137,33 @@ function Home({ data }) {
           })}
         </div>
         <div className={styles.pagination}>
-        <ul className={styles.numbers}>
-          <li>
-            <button
-              className={`${styles.page_Button} ${currentPage == pages[0] ? styles.btn_none : null}`}
-              onClick={previosPage}
-             
-            >
-              Previous
-            </button>
-          </li>
-          {pageNumbers}
-          <li>
-            <button
-              className={`${styles.page_Button} ${currentPage == pages[pages.length - 1] ? styles.btn_none : null}`}
-              onClick={nextPage}
-              
-            >
-              Next
-            </button>
-          </li>
-        </ul>
+          <ul className={styles.numbers}>
+            <li>
+              <button
+                className={`${styles.page_Button} ${
+                  currentPage == pages[0] ? styles.btn_none : null
+                }`}
+                onClick={previosPage}
+              >
+                Previous
+              </button>
+            </li>
+            {pageNumbers}
+            <li>
+              <button
+                className={`${styles.page_Button} ${
+                  currentPage == pages[pages.length - 1]
+                    ? styles.btn_none
+                    : null
+                }`}
+                onClick={nextPage}
+              >
+                Next
+              </button>
+            </li>
+          </ul>
         </div>
-        <Footer/>
+        <Footer />
       </main>
     </>
   );
