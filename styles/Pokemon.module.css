@@ -1,0 +1,245 @@
+.pokemon_page {
+  display: flex;
+  justify-content: space-around;
+  gap: 2rem;
+  align-items: center;
+  margin: 4% 10%;
+}
+.Img {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.name {
+  text-align: center;
+  margin: 0 0 2rem;
+  letter-spacing: 1px;
+}
+.pokemon_Img {
+  border-radius: 1rem;
+  color: gray;
+  object-fit: contain;
+}
+.btn,
+.explore_more {
+  display: flex;
+  width: 180px;
+  height: 45px;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  letter-spacing: 1px;
+  margin-top: 30px;
+  border-radius: 30px;
+  cursor: pointer;
+  background-color: #4caf50;
+  color: #fff;
+  border: 1px solid #000;
+  -webkit-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+}
+.explore_more {
+  width: 300px;
+  margin-left: 20px;
+}
+
+.btn_span,
+.explore_span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.btn_span:after,
+.explore_span:after {
+  content: "\00bb";
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.btn:hover .btn_span,
+.explore_more:hover .explore_span {
+  padding-right: 25px;
+}
+
+.btn:hover .btn_span:after,
+.explore_more:hover .explore_span:after {
+  opacity: 1;
+  right: 0;
+}
+
+.pokemon_box {
+  width: 30%;
+  display: block;
+}
+
+.pokemon_Info {
+  padding: 1rem;
+  border-radius: 0.5rem;
+  background-color: #30a7d7;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 550;
+  letter-spacing: 0.5px;
+}
+
+.Span {
+  display: flex;
+  font-family: "Flexo-Medium", arial, sans-serif;
+  color: #212121;
+  font-size: 16px;
+  margin: 0.75em 1.5em 0 1.5em;
+  white-space: normal;
+  word-break: break-word;
+}
+.type {
+  padding: 0.5rem;
+  margin-top: 0.5rem;
+}
+.resistant {
+  padding: 0.5rem;
+  margin-top: 0.5rem;
+}
+.ul {
+  list-style: none;
+}
+
+.margin_top_1 {
+  margin-top: 1rem;
+}
+
+.resistant_ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.resistant_list {
+  width: 100px;
+  border-radius: 0.3rem;
+  background-color: #7f00ff;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  text-align: center;
+  font-size: 16px;
+  font-family: "Flexo-Medium", arial, sans-serif;
+  white-space: normal;
+  word-break: break-word;
+}
+.type_text {
+  margin-bottom: 0.5rem;
+}
+
+.none {
+  display: none;
+}
+
+.color1 {
+  background-color: #28c76f;
+  background-color: #ee2a7b;
+}
+.color2 {
+  background-color: crimson;
+}
+
+.logo {
+  margin-left: 4.7rem;
+}
+
+.nav_bar {
+  display: flex;
+  background-color: #333;
+  overflow: hidden;
+  align-items: center;
+  color: #fff;
+  justify-content: flex-start;
+  position: fixed;
+  z-index: 10;
+  margin: 0;
+  top: 0;
+  width: 100vw;
+}
+
+.nav_bar a {
+  display: flex;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  margin-left: 20px;
+}
+
+.nav_bar a:hover {
+  background-color: #111;
+}
+
+@media (max-width: 760px) {
+  .home_link {
+    display: flex;
+    position: absolute;
+    text-decoration: none;
+    padding: 10px;
+    width: 80px;
+    height: 30px;
+    background-color: #ea5455;
+    color: #fff;
+    border-radius: 30px;
+    margin: 20px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .pokemon_page {
+    margin: 0 5%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    align-items: center;
+  }
+
+  .name {
+    text-align: center;
+    margin-top: 5rem;
+  }
+
+  .pokemon_Img {
+    border-radius: 1rem;
+    color: gray;
+    object-fit: contain;
+    max-width: 100%;
+  }
+
+  .pokemon_box {
+    width: 100%;
+    max-width: 400px;
+    margin: 1rem;
+  }
+
+  .pokemon_Info {
+    padding: 1rem;
+    border-radius: 0.5rem;
+    background-color: #30a7d7;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 550;
+    letter-spacing: 0.5px;
+  }
+
+  .Span {
+    display: flex;
+    font-family: "Flexo-Medium", arial, sans-serif;
+    color: #212121;
+    font-size: 16px;
+    margin: 0.75em 1.5em 0 1em;
+    white-space: normal;
+    word-break: break-word;
+  }
+  .logo {
+    margin-left: 2rem;
+  }
+}

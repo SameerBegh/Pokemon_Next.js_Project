@@ -1,0 +1,48 @@
+.link {
+  text-decoration: none;
+}
+.logo {
+  margin-left: 4.7rem;
+}
+
+.nav_bar {
+  display: flex;
+  width: 100vw;
+  background-color: #333;
+  overflow: hidden;
+  align-items: center;
+  color: #fff;
+  justify-content: flex-start;
+  position: fixed;
+  z-index: 10;
+  margin: 0;
+  top: 0;
+}
+
+.nav_bar a {
+  display: flex;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  margin-left: 20px;
+}
+
+.nav_bar a:hover {
+  background-color: #111;
+}
+
+@media screen and (max-width: 508px) {
+  .nav_bar {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .nav_bar a {
+    margin-right: 20px;
+  }
+
+  .logo {
+    margin-left: 2rem;
+  }
+}

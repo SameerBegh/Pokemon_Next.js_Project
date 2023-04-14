@@ -1,0 +1,25 @@
+.footer_info{
+  display: flex;
+  background-color: #111;
+  overflow: hidden;
+  align-items: center;
+  justify-content: space-evenly;
+  color: #fff;
+  bottom: 0;
+  margin-top: 20px;
+  padding: 10px;
+}
+
+@media (max-width: 800px) {
+  .footer_info {
+    display: block;
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 508px) {
+  .footer_info {
+    display: block;
+    text-align: center;
+  }
+}
